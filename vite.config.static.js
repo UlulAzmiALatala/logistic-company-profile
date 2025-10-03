@@ -1,12 +1,17 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import path from "path"; // <-- TAMBAHKAN IMPORT INI
 
-// Ini adalah konfigurasi standar Vite untuk aplikasi React murni
 export default defineConfig({
     plugins: [react()],
-    base: "./", // Path relatif agar aset selalu ditemukan
-    // Kita akan membuat folder output bernama 'dist' yang standar
+    base: "./",
     build: {
         outDir: "dist",
+    },
+    // TAMBAHKAN BAGIAN INI UNTUK MENDEFINISIKAN ALIAS '@'
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, "./resources/js"),
+        },
     },
 });
