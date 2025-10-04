@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Head } from "@inertiajs/react";
+import { Helmet } from "react-helmet-async";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
@@ -86,7 +86,9 @@ export default function Home() {
 
     return (
         <>
-            <Head title="Logistify - The Gold Standard of Modern Logistics" />
+            <Helmet>
+                <title>Logistify - The Gold Standard of Modern Logistics</title>
+            </Helmet>
             <div className="bg-gray-100 text-gray-800 font-sans antialiased">
                 <Navbar />
                 <main>
