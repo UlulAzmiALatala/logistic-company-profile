@@ -1,28 +1,17 @@
-import "../css/app.css";
-import "./bootstrap";
-
-import { createInertiaApp } from "@inertiajs/react";
-import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
+import React from "react";
 import { createRoot } from "react-dom/client";
+import Home from "./Pages/Home"; // Langsung import halaman utama kita
+import "../css/app.css"; // Import file CSS utama
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// Temukan div #app di index.html
+const container = document.getElementById("app");
 
-const appName = import.meta.env.VITE_APP_NAME || "Laravel";
+// Buat root untuk render React
+const root = createRoot(container);
 
-createInertiaApp({
-    title: (title) => `${title} - ${appName}`,
-    resolve: (name) =>
-        resolvePageComponent(
-            `./Pages/${name}.jsx`,
-            import.meta.glob("./Pages/**/*.jsx")
-        ),
-    setup({ el, App, props }) {
-        const root = createRoot(el);
-
-        root.render(<App {...props} />);
-    },
-    progress: {
-        color: "#4B5563",
-    },
-});
+// Render komponen Home kita langsung ke dalam root
+root.render(
+    <React.StrictMode>
+        <Home />
+    </React.StrictMode>
+);
