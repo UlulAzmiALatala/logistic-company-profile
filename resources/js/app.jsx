@@ -1,17 +1,17 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import Home from "./Pages/Home"; // Langsung import halaman utama kita
-import "../css/app.css"; // Import file CSS utama
+import { LazyMotion, domAnimation } from "framer-motion"; // <-- 1. IMPORT INI
+import Home from "./Pages/Home";
+import "../css/app.css";
 
-// Temukan div #app di index.html
 const container = document.getElementById("app");
-
-// Buat root untuk render React
 const root = createRoot(container);
 
-// Render komponen Home kita langsung ke dalam root
 root.render(
     <React.StrictMode>
-        <Home />
+        {/* 2. BUNGKUS KOMPONEN HOME DENGAN INI */}
+        <LazyMotion features={domAnimation}>
+            <Home />
+        </LazyMotion>
     </React.StrictMode>
 );
