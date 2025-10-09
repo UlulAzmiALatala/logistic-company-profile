@@ -244,11 +244,32 @@ export default function Home() {
                         </div>
                     </AnimatedSection>
 
+                    {/* === SEKSI BARU: DASHBOARD PREVIEW === */}
+                    <AnimatedSection id="dashboard" className="py-24 bg-white">
+                        <div className="container mx-auto px-6 text-center">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-800">
+                                Lihat Kekuatan Platform Kami
+                            </h2>
+                            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+                                Kami menyediakan dashboard analitik yang
+                                intuitif untuk memberikan Anda kendali penuh dan
+                                wawasan mendalam atas seluruh rantai pasok Anda
+                                secara real-time.
+                            </p>
+                            <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-2xl p-4 border border-gray-200">
+                                <img
+                                    src="/images/contoh-dashboard.jpg"
+                                    alt="Contoh Mockup Dashboard Aplikasi Logistik"
+                                    className="w-full h-auto rounded-lg"
+                                />
+                            </div>
+                        </div>
+                    </AnimatedSection>
+
                     {/* TENTANG KAMI SECTION */}
-                    <AnimatedSection id="tentang" className="py-24 bg-white">
+                    <AnimatedSection id="tentang" className="py-24 bg-gray-100">
                         <div className="container mx-auto px-6">
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                                {/* Kontainer Teks */}
                                 <div>
                                     <h2 className="text-3xl md:text-4xl font-bold mb-6">
                                         Lebih dari Sekadar Logistik, Kami Adalah
@@ -275,8 +296,6 @@ export default function Home() {
                                         depan pintu Anda.
                                     </p>
                                 </div>
-
-                                {/* Kontainer Gambar dengan Tinggi Terkontrol */}
                                 <div className="w-full h-[500px]">
                                     <img
                                         src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?q=80&w=1964&auto=format&fit=crop"
@@ -289,10 +308,7 @@ export default function Home() {
                     </AnimatedSection>
 
                     {/* VISI & MISI SECTION */}
-                    <AnimatedSection
-                        id="visimisi"
-                        className="py-24 bg-gray-100"
-                    >
+                    <AnimatedSection id="visimisi" className="py-24 bg-white">
                         <div className="container mx-auto px-6 text-center">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                                 <div>
@@ -375,7 +391,7 @@ export default function Home() {
                     </AnimatedSection>
 
                     {/* KONTAK SECTION */}
-                    <AnimatedSection id="kontak" className="py-24 bg-white">
+                    <AnimatedSection id="kontak" className="py-24 bg-gray-100">
                         <div className="container mx-auto px-6 text-center">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">
                                 Mari Ciptakan Masa Depan Logistik Bersama

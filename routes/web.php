@@ -16,24 +16,11 @@ use Inertia\Inertia;
 |
 */
 
-// ========================================================================
-// == PERUBAHAN UTAMA DI SINI ==
-// Arahkan rute utama ('/') untuk me-render komponen Home.jsx kita.
-// ========================================================================
+// Rute utama untuk halaman Beranda
 Route::get('/', function () {
     return Inertia::render('Home');
-});
+})->name('home'); // Memberi nama pada rute home
 
-
-// ========================================================================
-// == BIARKAN RUTE DI BAWAH INI UNTUK PENGEMBANGAN DI MASA DEPAN ==
-// Rute-rute ini (dashboard, profile, login, dll.) tidak akan
-// mengganggu halaman utama Anda, tapi berguna jika nanti klien
-// meminta fitur login atau member area.
-// ========================================================================
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

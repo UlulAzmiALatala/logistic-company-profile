@@ -1,34 +1,34 @@
-// resources/js/Components/Navbar.jsx
-
 import React, { useState } from "react";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    // Daftar menu untuk menghindari duplikasi
+    const menuItems = [
+        { href: "#layanan", label: "Layanan" },
+        { href: "#dashboard", label: "Dashboard" },
+        { href: "#tentang", label: "Tentang Kami" },
+    ];
+
     return (
         <header className="bg-white/90 backdrop-blur-lg shadow-sm fixed top-0 left-0 w-full z-50">
             <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-                {/* -- LOGO SVG BARU (LEBIH BAIK) -- */}
                 <div className="flex-shrink-0">
                     <a href="#beranda" className="flex items-center space-x-2">
-                        {" "}
-                        {/* Tambahkan flex untuk ikon & teks */}
                         <svg
-                            width="36" // Lebar ikon
-                            height="36" // Tinggi ikon
+                            width="36"
+                            height="36"
                             viewBox="0 0 36 36"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                         >
-                            {/* Shape utama: Segitiga (panah maju) */}
                             <path
                                 d="M18 0L36 18L18 36L0 18L18 0Z"
-                                fill="#F97316" // Warna oranye
+                                fill="#F97316"
                             />
-                            {/* Shape kedua: Kotak di dalamnya (representasi kargo) */}
                             <path
                                 d="M18 6L30 18L18 30L6 18L18 6Z"
-                                fill="#0F172A" // Warna abu-abu gelap
+                                fill="#0F172A"
                             />
                         </svg>
                         <span className="text-2xl font-extrabold tracking-wider">
@@ -40,19 +40,15 @@ export default function Navbar() {
 
                 {/* Menu Desktop */}
                 <div className="hidden md:flex items-center space-x-8 font-medium">
-                    <a
-                        href="#layanan"
-                        className="text-gray-600 hover:text-orange-500 transition-colors"
-                    >
-                        Layanan
-                    </a>
-                    {/* -- LINK BARU -- */}
-                    <a
-                        href="#tentang"
-                        className="text-gray-600 hover:text-orange-500 transition-colors"
-                    >
-                        Tentang Kami
-                    </a>
+                    {menuItems.map((item) => (
+                        <a
+                            key={item.href}
+                            href={item.href}
+                            className="text-gray-600 hover:text-orange-500 transition-colors"
+                        >
+                            {item.label}
+                        </a>
+                    ))}
                     <a
                         href="#kontak"
                         className="bg-gray-800 text-white px-5 py-2 rounded-full hover:bg-black transition-colors"
@@ -91,21 +87,16 @@ export default function Navbar() {
                     isMenuOpen ? "max-h-96" : "max-h-0"
                 } md:hidden bg-white overflow-hidden transition-all duration-500 ease-in-out`}
             >
-                <a
-                    href="#layanan"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block py-3 px-6 text-sm text-gray-600 hover:bg-gray-50 border-t"
-                >
-                    Layanan
-                </a>
-                {/* -- LINK BARU -- */}
-                <a
-                    href="#tentang"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block py-3 px-6 text-sm text-gray-600 hover:bg-gray-50 border-t"
-                >
-                    Tentang Kami
-                </a>
+                {menuItems.map((item) => (
+                    <a
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block py-3 px-6 text-sm text-gray-600 hover:bg-gray-50 border-t"
+                    >
+                        {item.label}
+                    </a>
+                ))}
                 <a
                     href="#kontak"
                     onClick={() => setIsMenuOpen(false)}
